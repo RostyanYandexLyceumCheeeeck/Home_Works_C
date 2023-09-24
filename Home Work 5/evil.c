@@ -9,7 +9,7 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     int p0, p1, p2;
 
-    printf("Введите 3 числа (значения р0 р1 р2):");
+        printf("Введите 3 числа (значения р0 р1 р2):");
     scanf("%d %d %d", &p0, &p1, &p2);
     evilScanf(&p0, &p1, &p2);
 
