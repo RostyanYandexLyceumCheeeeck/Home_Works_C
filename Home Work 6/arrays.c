@@ -14,12 +14,13 @@ int compareArrays(int* arr, int* brr, size_t alen, size_t blen);
 int main() {
     SetConsoleOutputCP(CP_UTF8);
 
-    size_t n = 15, m = 15;
-    int arr[n], brr[m], x;
+    size_t n, m;
+    int x;
 
     //
     printf("Тестирование функций scanArr и printArr. Введите размер массива:");
     scanf("%zu", &n);
+    int arr[n];
     printf("Введите массив длины %zu:\n", n);
     scanArr(arr, n);
     printArr(arr, n);
@@ -46,6 +47,7 @@ int main() {
     //
     printf("\nТестирование функции compareArrays. Введите размер массива:");
     scanf("%zu", &m);
+    int brr[n];
     printf("Введите массив длины %zu:\n", m);
     scanArr(brr, m);
     printf("%d", compareArrays(arr, brr, n, m));
