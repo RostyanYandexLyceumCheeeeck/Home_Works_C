@@ -20,7 +20,7 @@ int main() {
     //
     printf("Тестирование функций scanArr и printArr. Введите размер массива:");
     scanf("%zu", &n);
-    printf("Введите массив длины %zu :\n", n);
+    printf("Введите массив длины %zu:\n", n);
     scanArr(arr, n);
     printArr(arr, n);
 
