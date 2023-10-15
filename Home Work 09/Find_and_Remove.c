@@ -88,5 +88,5 @@ void removeSubArr(int* arr, int* brr, size_t* alen, size_t blen){
         *alen -= blen;
         copyArr(ptr + blen, ptr, *alen - (ptr - arr));
     }
-    arr = (int*) realloc(arr, *alen);
+    arr = (int*) realloc(arr, *alen * sizeof(int));
 }

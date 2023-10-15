@@ -38,7 +38,8 @@ void* scanArr(size_t* len, size_t* capacity){
         brr[left] = elem;
 
         if (++left == elem) {
-            brr = realloc(brr, right *= 2);
+            right *= 2;
+            brr = (int*) realloc(brr, right * sizeof(int));
             nullCheck(brr);
         }
     }
