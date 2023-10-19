@@ -5,14 +5,16 @@
 
 void nullCheck(void* ptr);
 char* scanStr();
-unsigned short palindrom(char* st);
+char* trim(char* st);
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);
 
     char* st = scanStr();
     printf("\nВы ввели строку:\n\"%s\"\n", st);
-    printf("Ваша строка является палиндромом(0 - нет, 1 - да): %u\n", palindrom(st));
+    char* st_trim = trim(st);
+    printf("\nНовая строка без пробелов в начале и в конце:\n\"%s\"\n", st_trim);
+
     return 0;
 }
 
@@ -46,27 +48,24 @@ char* scanStr(){
     return st;
 }
 
+char* trim(char* st){
+    size_t i, len = strlen(st);
+    char* result = (char*) malloc(len-- * sizeof(char));
+    char* ptr = result;
 
-unsigned short palindrom(char* st){
-    char* ptr = st + strlen(st) - 1;
-
-    while (st <= ptr) {
-        if (*st == ' ') {
-            st++;
-            continue;
-        }
-        if (*ptr == ' ') {
-            ptr--;
-            continue;
-        }
-
-        if ((*st != *ptr))
-            return 0;
-        else {
-            st++;
-            ptr--;
-        }
+    for (i = 0; i < len;){
+        if (st[i] == ' ')
+            i++;
+        if (st[len] == ' ')
+            len--;
+        else if (st[i] != ' ')
+            break;
     }
+    result = (char*) realloc(result, (len - i + 2) * sizeof(char));
 
-    return 1;
+    while(i <= len)
+        *ptr++ = st[i++];
+    *ptr = '\0';
+
+    return result;
 }
