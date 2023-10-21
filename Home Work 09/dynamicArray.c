@@ -32,22 +32,21 @@ void* scanArr(size_t* len, size_t* capacity){
     int* brr = (int*) malloc(right * sizeof(int));
     nullCheck(brr);
 
-    int elem = 1;
-    while(elem){
-        scanf("%d", &elem);
-        brr[left] = elem;
+    do {
+        scanf("%d", &brr[left]);
 
-        if (++left == elem) {
+        if (++left == right) {
             right *= 2;
             brr = (int*) realloc(brr, right * sizeof(int));
             nullCheck(brr);
         }
-    }
+    } while(brr[left - 1]);
 
     *len = left;
     *capacity = right;
     return brr;
 }
+
 void printArr(int* arr, size_t len){
     for(size_t i = 0; i < len; i++)
         printf("%d ", arr[i]);
